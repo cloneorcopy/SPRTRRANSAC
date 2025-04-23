@@ -190,6 +190,8 @@ def SPRT_RANSAC_RAW(points,
             best_support = n_consitent
             best_model = model
             new_epsilon = n_consitent / N
+            if new_epsilon >=0.99: # 避免A计算报错
+                break
             #if new_epsilon>epsilon_i[test_num]:
             updated_test = True
             test_num +=  1
@@ -326,6 +328,8 @@ def SPRT_RANSAC_RAW_NOR(points,
             best_support = n_consitent
             best_model = model
             new_epsilon = n_consitent / N
+            if new_epsilon >=0.99: # 避免A计算报错
+                break
             #if new_epsilon>epsilon_i[test_num]:
             updated_test = True
             test_num +=  1
