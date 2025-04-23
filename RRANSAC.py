@@ -178,7 +178,7 @@ def SPRT_RANSAC_RAW(points,
         if not accepted: #拒绝模型 重新估计delta 如果估计delta 差别大于原始值5% 设计下一次SPRT试验
             n_rejected += 1
             delta = delta_i[test_num]*(n_rejected-1)/n_rejected + n_consitent/(n_tested*n_rejected)
-            if delta > 1.05*delta_i[test_num] or delta > 0.95*delta_i[test_num]:
+            if delta > 1.05*delta_i[test_num] or delta < 0.95*delta_i[test_num]:
                 updated_test = True
                 test_num +=  1
                 delta_i[test_num] = delta
@@ -314,7 +314,7 @@ def SPRT_RANSAC_RAW_NOR(points,
         if not accepted: #拒绝模型 重新估计delta 如果估计delta 差别大于原始值5% 设计下一次SPRT试验
             n_rejected += 1
             delta = delta_i[test_num]*(n_rejected-1)/n_rejected + n_consitent/(n_tested*n_rejected)
-            if delta > 1.05*delta_i[test_num] or delta > 0.95*delta_i[test_num]:
+            if delta > 1.05*delta_i[test_num] or delta < 0.95*delta_i[test_num]:
                 updated_test = True
                 test_num +=  1
                 delta_i[test_num] = delta
